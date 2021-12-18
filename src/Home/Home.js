@@ -3,6 +3,8 @@ import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Stack from "@mui/material/Stack";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 // import CssBaseline from "@mui/material/CssBaseline";
 
@@ -25,6 +27,9 @@ function Home() {
     <div className="Home">
       <ThemeProvider theme={theme}>
         <div>
+          <Typography variant="h3" component="div" gutterBottom>
+            <Box sx={{ textAlign: "center", m: 1 }}>NaviSM</Box>
+          </Typography>
           <Stack
             sx={{ width: "90%" }}
             spacing={2}
