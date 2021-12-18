@@ -1,0 +1,104 @@
+import * as React from "react";
+import Button from '@mui/material/Button';
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import InboxIcon from '@mui/icons-material/Inbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import { useTheme, createTheme, ThemeProvider } from "@mui/material/styles";
+
+import People from '@mui/icons-material/People';
+import PermMedia from '@mui/icons-material/PermMedia';
+import Dns from '@mui/icons-material/Dns';
+import Public from '@mui/icons-material/Public';
+// import CssBaseline from "@mui/material/CssBaseline";
+
+import "./Home.css";
+
+const data = [
+  { icon: <People />, label: 'Authentication' },
+  { icon: <Dns />, label: 'Database' },
+  { icon: <PermMedia />, label: 'Storage' },
+  { icon: <Public />, label: 'Hosting' },
+];
+
+function Home() {
+  const theme = React.useMemo(
+    () =>
+    createTheme({
+      palette: {
+        // mode: 'dark',
+      },
+    })
+  )
+
+  return (
+    <div className="Home">
+      <ThemeProvider theme={theme}>
+        <div>
+          <Typography variant="h3" component="div" gutterBottom>
+            <Box sx={{ textAlign: "center", m: 3 }}>NaviSM</Box>
+          </Typography>
+          {/* <Stack
+            sx={{ width: "90%" }}
+            spacing={2}
+            style={{ margin: "0 auto", paddingTop: "20px" }}
+          >
+            <Alert severity="error">
+              <AlertTitle>无法访问</AlertTitle>
+              网站正在开发中，若您为网站管理员，请从 <strong>
+                管理员后台
+              </strong>{" "}
+              进入。
+            </Alert>
+          </Stack> */}
+          {/* {theme.palette.mode} mode */}
+          <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', margin: '0 auto' }}>
+            <nav aria-label="main mailbox folders">
+              <List>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Inbox" />
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemIcon>
+                      <DraftsIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Drafts" />
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </nav>
+            <Divider />
+            <nav aria-label="secondary mailbox folders">
+              <List>
+                <ListItem disablePadding>
+                  <ListItemButton>
+                    <ListItemText primary="Trash" />
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton component="a" href="#simple-list">
+                    <ListItemText primary="Spam" />
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </nav>
+          </Box>
+        </div>
+      </ThemeProvider>
+    </div>
+  );
+}
+
+export default Home;
